@@ -80,6 +80,7 @@ else()
 endif()
 
 find_package(qimodule)
+find_package(Boost REQUIRED COMPONENTS program_options thread)
 
 include_directories( include )
 
@@ -113,6 +114,7 @@ qi_create_bin( naoqi_driver_node src/external_registration.cpp)
 target_link_libraries(
   naoqi_driver_node
   naoqi_driver
+  ${Boost_LIBRARIES}
 )
 
 # install the urdf for runtime loading
